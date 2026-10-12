@@ -6,10 +6,15 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Uebung_2_1_Schulklasse;
 
-public class Schulklasse
+class Schulklasse
 {
     private int anzahlSchueler;
-    private string klassenVorstand;  
+    private string klassenVorstand;
+
+    public Schulklasse() :this(22, "Strasser")
+    {
+
+    }  
 
     public Schulklasse(int anzahlSchueler,string klassenVorstand)
     {
@@ -19,18 +24,34 @@ public class Schulklasse
 
     public override string ToString()
     {
-        return "Anzahl Schüler: " + anzahlSchueler + ", Klassenvorstand: " + klassenVorstand;
+        return ($"Anzahl Schüler: {anzahlSchueler}, Klassenvorstand: {klassenVorstand}");
     }
+
+    public int dazu()
+    {
+        return (anzahlSchueler + 1);
+    }
+
+    public int raus(int delete)
+    {
+        return (anzahlSchueler - delete);
+    }
+
+    public void KlassenwechselNach(Schulklasse klasse)
+    {
+        this.anzahlSchueler--;
+        klasse.anzahlSchueler++;
+    }  
 }
 
 class Program
 {
     static void Main(string[] args)
     {
-        Schulklasse klasse1 = new Schulklasse(22, "Strasser");
-        Schulklasse klasse2 = new Schulklasse(28, "Matejka");
+        Schulklasse klasse1 = new Schulklasse();
 
-        Console.WriteLine(klasse1);
-        Console.WriteLine(klasse2);
+        Console.WriteLine(klasse1.raus(4));
+
+        
     }
 }
