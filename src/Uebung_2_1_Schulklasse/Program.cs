@@ -49,9 +49,10 @@ class Program
     static void Main(string[] args)
     {
         Schulklasse klasse1 = new Schulklasse();
+        Schulklasse klasse2 = new Schulklasse(20, "Matejka");
 
         Console.WriteLine(klasse1.raus(4));
 
-        
+        klasse1.KlassenwechselNach(klasse2);
     }
 }
