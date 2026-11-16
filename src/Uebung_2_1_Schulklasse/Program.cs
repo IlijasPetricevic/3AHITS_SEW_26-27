@@ -27,14 +27,14 @@ class Schulklasse
         return ($"Anzahl Schüler: {anzahlSchueler}, Klassenvorstand: {klassenVorstand}");
     }
 
-    public int dazu()
+    public void dazu()
     {
-        return (anzahlSchueler + 1);
+        this.anzahlSchueler++;
     }
 
     public int raus(int delete)
     {
-        return (anzahlSchueler - delete);
+        return anzahlSchueler -= delete;
     }
 
     public void KlassenwechselNach(Schulklasse klasse)
@@ -50,9 +50,19 @@ class Program
     {
         Schulklasse klasse1 = new Schulklasse();
         Schulklasse klasse2 = new Schulklasse(20, "Matejka");
+        
+        Console.WriteLine("Anfang: ");
+        Console.WriteLine(klasse1);
+        Console.WriteLine($"{klasse2}\n");
 
-        Console.WriteLine(klasse1.raus(4));
+        Console.WriteLine("4 Schüler bei Strasser geben auf:");
+        klasse1.raus(4);
+        Console.WriteLine(klasse1);
+        Console.WriteLine(klasse2);
 
         klasse1.KlassenwechselNach(klasse2);
+        Console.WriteLine("\nKlassenwechsel Klasse 1 -> Klasse 2");
+        Console.WriteLine(klasse1);
+        Console.WriteLine(klasse2);
     }
 }
